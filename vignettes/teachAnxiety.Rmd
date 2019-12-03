@@ -29,7 +29,7 @@ library(readxl)
 ```
 
 Now, we want to install the **teachAnxiety** package from github:
-```{r setup, message = FALSE}
+```{r, message = FALSE}
 devtools::install_github("miranda-chen/teachAnxiety")
 library(teachAnxiety)
 ```
