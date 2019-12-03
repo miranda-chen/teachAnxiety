@@ -2,7 +2,8 @@
 % Please edit documentation in R/teach_anxiety.R
 \name{teach_anxiety}
 \alias{teach_anxiety}
-\title{Function to calculate Teaching Anxiety Score from Parson's (1973) survey}
+\title{Function to calculate Teaching Anxiety Score from Parson's (1973) survey
+devtools::use_vignette("introduction")}
 \usage{
 teach_anxiety(x)
 }

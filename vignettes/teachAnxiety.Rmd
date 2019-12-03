@@ -1,0 +1,97 @@
+---
+title: "Introduction to the *teachAnxiety* Package"
+author: "Miranda Chen, <mchen31@vols.utk.edu>"
+date: "December 2nd 2019"
+output: html_document
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+### Introduction
+
+This is a vignette of how to use the teachAnxiety package and it's functions to process data collected using the Parson's (1973) Teaching Anxiety Instrument. This markdown can be used as a reference for survey data processing in preparation for subsequent analyses. 
+
+
+### Initial steps  
+We will use a variety of packages and sets of packages, in which teachAnxiety functions rely on. These include: **tidyverse**, **dplyr**, **devtools**, and **readxl**. Install the packages first, then load them in with library() 
+
+```{r, message = FALSE}
+library(tidyverse)
+library(dplyr)
+library(devtools)
+library(readxl)
+
+```
+
+Now, we want to install the **teachAnxiety** package from github:
+```{r setup, message = FALSE}
+devtools::install_github("miranda-chen/teachAnxiety")
+library(teachAnxiety)
+```
+
+### 1) Read practice data from package **test_data.csv**
+
+Let's begin by reading in the external data provided within the package and check to see if it is read correctly:
+```{r, message = TRUE}
+filepath <- system.file("extdata/", "test_data.csv", package = "teachAnxiety")
+practice_dataset <- read.csv(filepath)
+practice_dataset
+```
+
+### 2) Check data format to read in .xlsx and .csv files
+When using your own data, you can use the **check_data_format** function to make sure the data being processed using this package is a .csv or .xlsx file. 
+If it is a .csv or .xlsx file, the data will be read by R properly and present the dataframe.
+
+```{r, message = FALSE}
+check_data_format(filepath) 
+```
+
+Within **check_data_format**, there are two wrapper functions to more easily read .csv or .xlsx files:
+```{r, message = FALSE}
+my_read_csv_function(filepath) 
+# Again, if it is a .csv file, the data will be read by R properly and present the dataframe
+
+```
+
+For the sake of demonstration, if we put the given .csv file into the **my_read_xlsx_function**, an error message will appear:
+```{r, error=TRUE}
+
+my_read_xlsx_function(filepath)
+```
+
+
+### 3) Are my data numeric or not?
+Next, we want to check to see if our data are being read as numeric values by R. This will be important for subsequent data analysis! 
+
+```{r, message = TRUE}
+numeric_columns(practice_dataset)
+```
+
+It is **TRUE** in all our columns in the **practice_dataset** have only numeric data. 
+
+
+### 4) Got NAs, anyone?
+The next function in the package tests to see if there are NAs (from incomplete responses from participants) within the dataset. 
+
+```{r, message = T}
+contains.na(practice_dataset)
+```
+
+Here, we see that it is TRUE in this **practice_dataset** there are is an NA value in column 2. In this way, users can assess how many NAs they have and determine how they want to proceed with those NAs (e.g. fill them with averages, take out the participant row, etc.).
+
+### 5) Calculate the Teaching Anxiety Score
+Finally, the function to actually calculate the Teaching Anxiety Score as presented in the Parson's 1973 instrument. This function does two things: (1) reverse scores 14 questions, and (2) sums all columns for each row/participant to calculate an Anxiety Score.
+
+```{r, message = T}
+teach_anxiety(practice_dataset)
+```
+
+In the last column, you can see the calculated teaching anxiety score for each row participant. The data is ready to be further analyzed (e.g connected to other data for participants, develop models, etc.).
+
+### Conclusion
+This package hold simple functions for users to better process their survey data from Parson's 1973 survey. Pleaserefer to https://github.com/miranda-chen/teachAnxiety.git for further details about the code.  
