@@ -14,4 +14,8 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 Imports: 
-    readr
+    readr,
+    readxl,
+    dplyr,
+    stringr,
+    devtools

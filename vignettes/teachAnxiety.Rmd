@@ -18,12 +18,12 @@ This is a vignette of how to use the teachAnxiety package and it's functions to 
 
 
 ### Initial steps  
-We will use a variety of packages and sets of packages, in which teachAnxiety functions rely on. These include: **tidyverse**, **dplyr**, **devtools**, and **readxl**. Install the packages first, then load them in with `library()` 
+We will use a variety of packages and sets of packages, in which teachAnxiety functions rely on. These include:**dplyr**, **devtools**, **readr** and **readxl**. Technically, these packages do not need to be loaded with `library()`, however, as they have been included as dependencies within the package itself.
 
 ```{r, message = FALSE}
-library(tidyverse)
 library(dplyr)
 library(devtools)
+library(readr)
 library(readxl)
 
 ```
@@ -44,21 +44,22 @@ practice_dataset
 ```
 
 ### 2) Check data format to read in .xlsx and .csv files
-When using your own data, you can use the **check_data_format** function to make sure the data being processed using this package is a .csv or .xlsx file. 
+When using your own data, you can use the `check_data_format()` function to make sure the data being processed using this package is a .csv or .xlsx file. 
 If it is a .csv or .xlsx file, the data will be read by R properly and present the dataframe.
 
 ```{r, message = FALSE}
 check_data_format(filepath) 
 ```
 
-Within **check_data_format**, there are two wrapper functions to more easily read .csv or .xlsx files:
+Within `check_data_format()`, there are two wrapper functions to more easily read .csv or .xlsx files: `my_read_csv_function()` and `my_read_xlsx_function()`. These wrappers make sure the data can actually be read by R, and provides a meaningful error message otherwise.
+
 ```{r, message = FALSE}
 my_read_csv_function(filepath) 
 # Again, if it is a .csv file, the data will be read by R properly and present the dataframe
 
 ```
 
-For the sake of demonstration, if we put the given .csv file into the **my_read_xlsx_function**, an error message will appear:
+For the sake of demonstration, if we put the given .csv file into the `my_read_xlsx_function()`, an error message will appear:
 ```{r, error=TRUE}
 
 my_read_xlsx_function(filepath)
@@ -72,7 +73,7 @@ Next, we want to check to see if our data are being read as numeric values by R.
 numeric_columns(practice_dataset)
 ```
 
-It is **TRUE** in all our columns in the **practice_dataset** have only numeric data. 
+From the output, you can see that it is `TRUE` in all our columns of the **practice_dataset**, that it only has numeric data. If you find that there are columns that come out `FALSE`, then you need to to back into your dataset to see how R is reading that data. 
 
 
 ### 4) Got NAs, anyone?
@@ -94,4 +95,4 @@ teach_anxiety(practice_dataset)
 In the last column, you can see the calculated teaching anxiety score for each row participant. The data is ready to be further analyzed (e.g connected to other data for participants, develop models, etc.).
 
 ### Conclusion
-This package hold simple functions for users to better process their survey data from Parson's 1973 survey. Pleaserefer to https://github.com/miranda-chen/teachAnxiety.git for further details about the code.  
+This package hold simple functions for users to better process their survey data from Parson's (1973) survey. Pleaserefer to https://github.com/miranda-chen/teachAnxiety.git for further details about the code.  
