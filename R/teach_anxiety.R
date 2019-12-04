@@ -17,7 +17,8 @@ teach_anxiety <- function(data) {
   } else {
     # reverse scoring data
     max.value <- 6
-    reversed_data <- data %>%
+    reversed_data <-
+      data %>%
       dplyr::mutate(Q1 = max.value - Q1,
              Q4 = max.value - Q4,
              Q6 = max.value - Q6,

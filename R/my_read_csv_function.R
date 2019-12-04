@@ -1,10 +1,9 @@
-##' Reads csv or xlsx files with meaningful error message
+##' Reads csv files with meaningful error message
 ##'
 ##' @description Function to read both .csv and .xlsx files into R.
 ##' @usage my_read_csv_function(file)
-##' @usage my_read_xlsx_function(file)
 ##' @param file A filename as a character vector of length 1
-##' @return A data frame representing the .csv or .xlsx file
+##' @return A data frame representing the .csv file
 ##'
 ##'
 ##' @export
