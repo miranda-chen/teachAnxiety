@@ -6,7 +6,7 @@
 ##'
 ##' @return A data frame with the Teaching Anxiety score as the last column.
 ##' @details Function to calculate Teaching Anxiety score.
-##'
+##' @importFrom magrittr "%>%"
 ##'
 ##' @export
 

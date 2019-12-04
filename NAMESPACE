@@ -3,5 +3,7 @@
 export(check_data_format)
 export(contains.na)
 export(my_read_csv_function)
+export(my_read_xlsx_function)
 export(numeric_columns)
 export(teach_anxiety)
+importFrom(magrittr,"%>%")
