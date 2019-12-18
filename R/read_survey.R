@@ -18,12 +18,12 @@ read_survey <- function(fn, sheet = "Sheet1", ...) {
 
   # Check whether the filename ends in .xlsx or .csv
   if(stringr::str_detect(fn, "\\.xlsx$")) { # .xlsx
-    survey_df <- read_survey_xlsx(fn, sheet = sheet, ...)
+    survey_df <- read_survey_results_xlsx(fn, sheet = sheet, ...)
   } else { #.csv
     if(!stringr::str_detect(fn, "\\.csv%")) {
       warning("The filename does not end in .csv but I am programmed to read any file that doesn't end in .xlsx as a .csv file")
     }
-    survey_df <- read_survey_csv(fn, ...)
+    survey_df <- read_survey_results_csv(fn, ...)
   }
   #this will display the data to you
   survey_df

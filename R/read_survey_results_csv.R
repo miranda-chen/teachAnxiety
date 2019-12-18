@@ -1,14 +1,14 @@
 ##' Reads csv files with meaningful error message
 ##'
 ##' @description Function to read both .csv and .xlsx files into R.
-##' @usage my_read_csv_function(file)
+##' @usage read_survey_results_csv(file)
 ##' @param file A filename as a character vector of length 1
 ##' @return A data frame representing the .csv file
 ##'
 ##'
 ##' @export
 
-my_read_csv_function <- function(fn, ...) {
+read_survey_csv <- function(fn, ...) {
 
   d <- tryCatch(
     d <- readr::read_csv(fn, ...),
