@@ -46,7 +46,7 @@ read_survey_results_csv(filepath)
 
 For the sake of demonstration, if we put the given .csv file into the `read_survey_results_xlsx()`, an error message will appear:
 ```{r, error=TRUE}
-my_read_xlsx_function(filepath)
+read_survey_results_xlsx(filepath)
 ```
 
 
