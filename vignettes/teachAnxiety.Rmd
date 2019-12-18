@@ -25,7 +25,6 @@ library(dplyr)
 library(devtools)
 library(readr)
 library(readxl)
-
 ```
 
 Now, we want to install the **teachAnxiety** package from github:
@@ -56,12 +55,10 @@ Within `check_data_format()`, there are two wrapper functions to more easily rea
 ```{r, message = FALSE}
 my_read_csv_function(filepath) 
 # Again, if it is a .csv file, the data will be read by R properly and present the dataframe
-
 ```
 
 For the sake of demonstration, if we put the given .csv file into the `my_read_xlsx_function()`, an error message will appear:
 ```{r, error=TRUE}
-
 my_read_xlsx_function(filepath)
 ```
 
