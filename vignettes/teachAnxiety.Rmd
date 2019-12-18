@@ -20,16 +20,9 @@ This is a vignette of how to use the teachAnxiety package and it's functions to 
 ### Initial steps  
 We will use a variety of packages and sets of packages, in which teachAnxiety functions rely on. These include:**dplyr**, **devtools**, **readr** and **readxl**. Technically, these packages do not need to be loaded with `library()`, however, as they have been included as dependencies within the package itself.
 
-```{r, message = FALSE}
-library(dplyr)
-library(devtools)
-library(readr)
-library(readxl)
-
-```
 
 Now, we want to install the **teachAnxiety** package from github:
-```{r, message = FALSE}
+```{r, message = FALSE, eval = 2}
 devtools::install_github("miranda-chen/teachAnxiety")
 library(teachAnxiety)
 ```
@@ -56,12 +49,10 @@ Within `check_data_format()`, there are two wrapper functions to more easily rea
 ```{r, message = FALSE}
 my_read_csv_function(filepath) 
 # Again, if it is a .csv file, the data will be read by R properly and present the dataframe
-
 ```
 
 For the sake of demonstration, if we put the given .csv file into the `my_read_xlsx_function()`, an error message will appear:
 ```{r, error=TRUE}
-
 my_read_xlsx_function(filepath)
 ```
 
