@@ -13,6 +13,7 @@ This is a vignette of how to use the teachAnxiety package and it's functions to 
 ### Initial steps  
 We will use a variety of packages and sets of packages, in which teachAnxiety functions rely on. These include:**dplyr**, **devtools**, **readr** and **readxl**. Technically, these packages do not need to be loaded with `library()`, however, as they have been included as dependencies within the package itself.
 
+
 Now, we want to install the **teachAnxiety** package from github:
 ```{r, message = FALSE}
 devtools::install_github("miranda-chen/teachAnxiety")

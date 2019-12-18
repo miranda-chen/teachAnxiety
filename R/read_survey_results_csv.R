@@ -8,7 +8,7 @@
 ##'
 ##' @export
 
-read_survey_csv <- function(fn, ...) {
+read_survey_results_csv <- function(fn, ...) {
 
   d <- tryCatch(
     d <- readr::read_csv(fn, ...),
